@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import img2 from "./img2.png"
+import React, { useState } from 'react';
+import axios from 'axios';
 import { FaTwitter } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { IoIosCall } from "react-icons/io";
@@ -18,10 +18,26 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to server)
-    console.log(formData);
-    // Optionally, reset form fields after submission
-    setFormData({ name: '', email: '', message: '' });
+    axios.post('http://localhost:4000/send-email', formData)
+      .then(response => {
+        // Handle successful response
+        console.log('Email sent successfully:', response.data);
+        // Optionally, reset form fields after submission
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch(error => {
+        // Handle error
+        if (error.response) {
+          // Request was made and server responded with a status code
+          console.error('Server responded with status:', error.response.status);
+        } else if (error.request) {
+          // Request was made but no response was received
+          console.error('No response received:', error.request);
+        } else {
+          // Something else happened while setting up the request
+          console.error('Error setting up request:', error.message);
+        }
+      });
   };
   return (
     <div className="bg-gray-100 min-h-screen p-10 flex justify-center items-center w-full pl-[200px]">
@@ -56,10 +72,10 @@ export default function Contact() {
             </form>
           </div>
           <div>
-            <img src={img2} alt="Contact" className="rounded-lg bg-sky-900" />
+            {/* Your image */}
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
