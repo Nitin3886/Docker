@@ -19,22 +19,16 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:4000/send-email', formData)
-      .then(response => {
-        // Handle successful response
+      .then((response) => {
         console.log('Email sent successfully:', response.data);
-        // Optionally, reset form fields after submission
         setFormData({ name: '', email: '', message: '' });
       })
-      .catch(error => {
-        // Handle error
+      .catch((error) => {
         if (error.response) {
-          // Request was made and server responded with a status code
           console.error('Server responded with status:', error.response.status);
         } else if (error.request) {
-          // Request was made but no response was received
           console.error('No response received:', error.request);
         } else {
-          // Something else happened while setting up the request
           console.error('Error setting up request:', error.message);
         }
       });

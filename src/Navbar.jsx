@@ -24,11 +24,15 @@ const Navbar = () => {
 
 const NavLink = ({ to, children }) => {
   const location = useLocation();
-
   const isActive = location.pathname === to;
 
   return (
-    <Link to={to} className={`text-black hover:text-gray-300 ${isActive ? 'text-blue-900 font-bold' : ''}`}>
+    <Link
+      to={to}
+      className={`text-black hover:text-gray-300 ${
+        isActive ? 'text-blue-900 font-bold' : ''
+      }`}
+    >
       {children}
     </Link>
   );

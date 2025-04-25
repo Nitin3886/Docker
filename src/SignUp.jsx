@@ -20,35 +20,24 @@ const RegisterPage = () => {
   //     console.error('Error signing up user:', error.response.data.error);
   //   }
   // };
-  const handleSignUp = () => {
-    // Construct the signup data object
-    const signUpData = {
-      name,
-      email,
-      password
-    };
-  
-    // Make a POST request to the signup endpoint
+  const handleSignUp = (e) => {
+    e.preventDefault(); // Prevent form refresh
+    const signUpData = { name, email, password };
     fetch('http://localhost:3000/signup', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(signUpData)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(signUpData),
     })
-    .then(response => {
-      if (response.ok) {
-        console.log('User signed up successfully');
-        // Optionally, redirect to another page or perform additional actions upon successful signup
-      } else {
-        console.error('Error signing up user:', response.statusText);
-        // Handle error response
-      }
-    })
-    .catch(error => {
-      console.error('Error signing up user:', error);
-      // Handle network errors
-    });
+      .then((response) => {
+        if (response.ok) {
+          console.log('User signed up successfully');
+        } else {
+          console.error('Error signing up user:', response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.error('Error signing up user:', error);
+      });
   };
   
 
