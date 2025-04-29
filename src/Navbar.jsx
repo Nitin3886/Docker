@@ -12,7 +12,7 @@ const Navbar = () => {
         <h1 className="text-sky-900 font-bold text-2xl font-serif">DoctorHome</h1>
       </div>
       <div className="flex space-x-4">
-        <NavLink className='text-black' to="/home">Nitin</NavLink>
+        <NavLink className='text-black' to="/home">Home</NavLink>
         <NavLink className='text-black' to="/about">About</NavLink>
         <NavLink className='text-black' to="/services">Services</NavLink>
         <NavLink className='text-black' to="/contact">Contact</NavLink>
