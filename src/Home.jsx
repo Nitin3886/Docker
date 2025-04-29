@@ -10,7 +10,7 @@ export default function Home() {
         <div>
             <div className='bg-blue-950 h-[600px] w-full flex justify-evenly'>
                 <div className='flex-col justify-center items-center flex '>
-                    <p className=' text-6xl ml-8 font-bold p-10 text-white w-3/4'>Protect Your <span className='text-sky-300'>Health</span> And Take care of Health*****.</p>
+                    <p className=' text-6xl ml-8 font-bold p-10 text-white w-3/4'>Protect Your <span className='text-sky-300'>Health</span> And Take care of Health.</p>
                     <p className='w-2/3 text-blue-300'>You can get the care you need 24/7 -be it online or in persion. You will be treated bt caring specialist doctors.</p>
                     <div className='flex justify-center items-center mr-[66px]'>
                         <p className='m-4 bg-blue-300 rounded-full p-2 shadow-md shadow-gray-800'><FaTwitter /></p>
